@@ -16,8 +16,8 @@ for v in response['stages']:
 comment = f""" Commit ID: {COMMIT}\n
 Build ID: {BUILD_ID}\n
 Status: {status} \n
-Report path: [link](https://dgl-ci-result_pen.s3.us-west-2.amazonaws.com/{JOB_NAME}/{BUILD_NUMBER}/{BUILD_ID}/logs/report.html) \n
-Full logs path: [link](https://dgl-ci-result_pen.s3.us-west-2.amazonaws.com/{JOB_NAME}/{BUILD_NUMBER}/{BUILD_ID}/logs/cireport.log)
+Report path: [link](https://dgl-ci-result-pen.s3.us-west-2.amazonaws.com/{JOB_NAME}/{BUILD_NUMBER}/{BUILD_ID}/logs/report.html) \n
+Full logs path: [link](https://dgl-ci-result-pen.s3.us-west-2.amazonaws.com/{JOB_NAME}/{BUILD_NUMBER}/{BUILD_ID}/logs/cireport.log)
 """
 
 print(comment)
